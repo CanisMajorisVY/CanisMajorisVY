@@ -1,7 +1,7 @@
 class Array {
 	
 	int j = 0;
-	Point[] ar = new Point[1];
+	Point[] ar = new Point[];
 	
 	void lengthOptimizer(int l) {
 			
@@ -32,16 +32,15 @@ class Array {
 	
 	void removePoint(int numb) {
 		
-		for (int i = numb; i < ar.length - 1 ; i++) {
-			ar[i] = ar[i + 1];
-		}	
+		ar[numb] = null;
 		
-		j--;
 	}
 	
 	
 	Point getPoint(int numb) {
+		
 		return ar[numb];
+		
 	}
 	
 }
