@@ -23,7 +23,7 @@ public class T4 {
 			}	
 		}
 		
-		if ((w != 0) {
+		if (w != 0) {
 			System.out.println("wrong");
 		} 
 		else {
