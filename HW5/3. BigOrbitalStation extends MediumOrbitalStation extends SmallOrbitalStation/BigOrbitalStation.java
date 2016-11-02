@@ -2,12 +2,12 @@ public class BigOrbitalStation extends MediumOrbitalStation{
 	
 	protected boolean ftlEngineExisting = false;
 	
-	BigOrbitalStation (int fuelTankCapacity, int numberOfHumansOnBoard, boolean engineIsLaunched, int serialNumber, boolean telescopeAvailability, boolean ftlEngineExisting) {
+	public BigOrbitalStation (int fuelTankCapacity, int numberOfHumansOnBoard, boolean engineIsLaunched, int serialNumber, boolean telescopeAvailability, boolean ftlEngineExisting) {
 		super (fuelTankCapacity, numberOfHumansOnBoard, engineIsLaunched, serialNumber, telescopeAvailability);
 		this.ftlEngineExisting = ftlEngineExisting;
 	}
 	
-	BigOrbitalStation () {
+	public BigOrbitalStation () {
 		
 	}
 	

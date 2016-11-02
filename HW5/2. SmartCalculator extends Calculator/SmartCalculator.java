@@ -2,12 +2,12 @@ public class SmartCalculator extends Calculator {
 	
 	protected boolean ramExisting;
 
-	SmartCalculator (String calcProc, boolean solarBatteryExistance, String serialNumber, boolean ramExisting) {
+	public SmartCalculator (String calcProc, boolean solarBatteryExistance, String serialNumber, boolean ramExisting) {
 		super(calcProc, solarBatteryExistance, serialNumber);
 		this.ramExisting = ramExisting;
 	}
 	
-	SmartCalculator() {
+	public SmartCalculator() {
 		
 	}
 	

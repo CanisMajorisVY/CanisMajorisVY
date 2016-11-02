@@ -2,12 +2,12 @@ public class MediumOrbitalStation extends SmallOrbitalStation {
 	
 	protected boolean telescopeAvailability = false;
 	
-	MediumOrbitalStation (int fuelTankCapacity, int numberOfHumansOnBoard, boolean engineIsLaunched, int serialNumber, boolean telescopeAvailability) {
+	public MediumOrbitalStation (int fuelTankCapacity, int numberOfHumansOnBoard, boolean engineIsLaunched, int serialNumber, boolean telescopeAvailability) {
 		super(fuelTankCapacity,  numberOfHumansOnBoard, engineIsLaunched,  serialNumber);
 		this.telescopeAvailability = telescopeAvailability;
 	}
 	
-	MediumOrbitalStation () {
+	public MediumOrbitalStation () {
 		
 	}
 	

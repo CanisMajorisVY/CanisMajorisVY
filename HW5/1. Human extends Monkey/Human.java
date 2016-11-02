@@ -36,6 +36,7 @@ public class Human extends Bonobo {
 		for (int i = 0; i < bodyColor.length(); i++){
 			q +=  bodyColor.charAt(i) * 3 / 2;
 		}
+	
 		q += iq - iq / 2 + q / 3* 11;
 		q += mood * 12 / 5;
 		return q;

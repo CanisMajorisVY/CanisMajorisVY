@@ -4,13 +4,13 @@ public class Calculator {
 	protected boolean solarBatteryExistance;
 	protected String serialNumber;
 	
-	Calculator (String calcProc, boolean solarBatteryExistance, String serialNumber) {
+	public Calculator (String calcProc, boolean solarBatteryExistance, String serialNumber) {
 		this.calcProc = calcProc;
 		this.solarBatteryExistance = solarBatteryExistance;
 		this.serialNumber = serialNumber;
 	}
 	
-	Calculator () {
+	public Calculator () {
 		
 	}
 	

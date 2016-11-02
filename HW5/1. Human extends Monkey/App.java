@@ -11,6 +11,8 @@ public class App {
 		System.out.println(masha.hashCode());
 		System.out.println(tanya.hashCode() + "\n");
 		
+		System.out.println(masha.equals(tanya) + "\n\n");
+		
 		tanya = masha.clone();
 		
 		System.out.println(masha.hashCode());

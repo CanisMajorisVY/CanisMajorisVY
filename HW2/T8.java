@@ -7,7 +7,10 @@ public class T8 {
 		int k = 0, km = 0;
 		boolean q;
 		
-		for (i = 0; c > 0; i++) {
+		
+		ar[i] = c % 2;
+		c = c / 2;
+		for (i = 1; c > 0; i++) {
 			ar[i] = c % 2;
 			c = c / 2;
 		}

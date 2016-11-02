@@ -3,25 +3,32 @@ public class T4 {
 		
 		String s1 = args[0];
 		String s2 = args[1];
-		boolean q = false;
+		boolean q = true;
 		
-		if (s1.length() == s2.length()) {
-			q = true;
-			for (int i = 0; i < s1.length(); i++ ) {
-				if (s1.charAt(i) != s2.charAt(i)) {
-					q = false;
-					break;
-				}
-			}
-		}
+		int minl = 0;
 		
-		if (q) {
-			System.out.println("equal");
+		if (s1.length() < s2.length()) {
+			minl = s1.length();
 		} 
 		else {
-			System.out.println("not equal");
-		}
-			
+			minl = s2.length();
+		}	
 		
+		for (int i = 0; i < minl; i++) {
+			if (s1.charAt(i) > s2.charAt(i)) {
+				System.out.println("s1 > s2");
+				q = false;
+				break;
+			}
+			else if (s1.charAt(i) < s2.charAt(i)){
+				System.out.println("s1 < s2");
+				q = false;
+				break;
+			}
+		}
+	
+		if (q) {
+			System.out.println("s1 = s2");
+		}
 	}
 }
