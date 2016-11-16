@@ -17,18 +17,19 @@ public class T4 {
 				w -= 1;
 			}
 			
-			if (w < 0) q = true;
+			if (w < 0) {
+				q = true;
+				break;
+			}	
 		}
 		
-		if ((q)||(w != 0)) {
+		if (w != 0) {
 			System.out.println("wrong");
 		} 
 		else {
 			System.out.println("true");
 		}
 		
-		
-		System.out.println(s1);
 		
 	}
 }
