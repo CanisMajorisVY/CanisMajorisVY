@@ -1,0 +1,3 @@
+interface Rideable {
+	void ride();
+}

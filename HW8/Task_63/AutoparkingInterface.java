@@ -1,0 +1,3 @@
+interface AutoparkingInterface {
+	void park();
+}

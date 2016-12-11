@@ -5,7 +5,6 @@ public class T4 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int w = 0;
-		boolean q = false;
 		String s = sc.nextLine();
 		String s1 = "";
 		
@@ -18,7 +17,6 @@ public class T4 {
 			}
 			
 			if (w < 0) {
-				q = true;
 				break;
 			}	
 		}

@@ -1,0 +1,3 @@
+interface Beepable {
+	void beep();
+}

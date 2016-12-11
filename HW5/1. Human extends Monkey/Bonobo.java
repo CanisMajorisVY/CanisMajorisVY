@@ -39,7 +39,9 @@ public class Bonobo {
 		return q;
 	} 
 	
-	public boolean equals (Bonobo x) {
+	public boolean equals (Object x1) {
+		if (x1 == null) return false;
+		Bonobo x = (Bonobo) x1;
 		if (hashCode() == x.hashCode()) {
 			return true;
 		}
