@@ -3,7 +3,7 @@ package Comparisons;
 /**
  * Created by Mihail on 28.02.2017.
  */
-public class Composer {
+public class Composer implements Comparable<Composer> {
 
     public static int numberOfListens;
     private String name;
@@ -21,13 +21,17 @@ public class Composer {
         this.name = name;
     }
 
-    public static int getNumberOfListens() {
+    public int getNumberOfListens() {
         return numberOfListens;
     }
 
-    public static void setNumberOfListens(int numberOfListens) {
+    public void setNumberOfListens(int numberOfListens) {
         Composer.numberOfListens = numberOfListens;
     }
 
+    @Override
+    public int compareTo(Composer composer){
+        return name.compareTo(composer.getName());
+    }
 
 }
