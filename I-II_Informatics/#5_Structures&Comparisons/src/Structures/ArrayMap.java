@@ -9,10 +9,10 @@ public class ArrayMap<T> implements Map<T>{
     private static final int N = 10;
 
 
-    String[] keyArray;
-    Object[] ObjectArray;
+    private String[] keyArray;
+    private Object[] ObjectArray;
 
-    ArrayMap() {
+    public ArrayMap() {
 
         keyArray = new String[N];
         ObjectArray = new Object[N];

@@ -10,8 +10,8 @@ public class Collection<T> extends AbstractCollection<T> {
 
     private static int MAXLENGTH = 10000;
     private Object[] array;
-    int size;
-    int index;
+    private int size;
+    private int index;
 
     public Collection(){
          this(10);
@@ -36,8 +36,8 @@ public class Collection<T> extends AbstractCollection<T> {
     }
 
     private class Itr implements java.util.Iterator<T> {
-        int ind = -1;
-        int nOfElements = 0;
+       private int ind = -1;
+       private int nOfElements = 0;
 
         @Override
         public boolean hasNext() {
@@ -51,8 +51,9 @@ public class Collection<T> extends AbstractCollection<T> {
         public T next() {
             ind++;
             if(hasNext()) {
-                while (array[ind] == null && ind < index)
+                while (array[ind] == null && ind < index) {
                     ind++;
+                }
             } else {
                 throw new NoSuchElementException();
             }
@@ -71,6 +72,7 @@ public class Collection<T> extends AbstractCollection<T> {
 
     @Override
     public boolean add(T element) {
+        //проверить на null
         if(index > array.length - 2 && array.length < MAXLENGTH * 3 / 2 + 1) {
             lengthOptimizer();
         }
@@ -105,11 +107,7 @@ public class Collection<T> extends AbstractCollection<T> {
 
     @Override
     public void clear(){
-        Iterator<T> iterator = iterator();
-        while (iterator.hasNext()) {
-            iterator.next();
-            iterator.remove();
-        }
+        //переделать
     }
 
     @Override
@@ -139,7 +137,7 @@ public class Collection<T> extends AbstractCollection<T> {
 
     @Override
     public boolean isEmpty(){
-        return (size == 0);
+        return size == 0;
     }
 
     @Override
@@ -173,7 +171,7 @@ public class Collection<T> extends AbstractCollection<T> {
         boolean q = false;
         while (iterator.hasNext()){
             T t = iterator.next();
-            if(!collection.contains(t)){
+            if(collection.contains(t)){
                 iterator.remove();
                 q = true;
             }
@@ -216,7 +214,6 @@ public class Collection<T> extends AbstractCollection<T> {
         if(obj == null || !(obj instanceof Collection)) {
             return false;
         }
-
         if(Arrays.deepEquals(array, ((Collection) obj).array)){
             if(size == ((Collection) obj).size) {
                 if(index == ((Collection) obj).index){

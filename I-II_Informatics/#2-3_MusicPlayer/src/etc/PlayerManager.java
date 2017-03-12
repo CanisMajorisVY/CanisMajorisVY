@@ -11,7 +11,7 @@ public class PlayerManager implements Player{
     private static PlayerManager instance;
     private static int i;
     private static boolean state;
-    Track track;
+    private Track track;
 
     private PlayerManager () {
         state = false;

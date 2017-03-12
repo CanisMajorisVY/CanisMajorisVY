@@ -6,7 +6,7 @@ import org.omg.CORBA.INTERNAL;
 public class EArray<T> {
 
 
-    int j;
+    private int j;
     Object[] ar;
 
     EArray(){
@@ -14,7 +14,7 @@ public class EArray<T> {
         ar = new Object[j];
     }
 
-    void lengthOptimizer(int l) {
+    private void lengthOptimizer(int l) {
 
         Object[] nAr = new Object[ar.length];
 
@@ -30,7 +30,7 @@ public class EArray<T> {
 
     }
 
-    void addElement(T p) {
+    public void addElement(T p) {
 
         if (j >= ar.length) {
             lengthOptimizer(j);
@@ -41,14 +41,14 @@ public class EArray<T> {
 
     }
 
-    void removeT(int numb) {
+    public void removeT(int numb) {
 
         ar[numb] = null;
 
     }
 
 
-    T getElement(int numb) throws ArrayIndexOutOfBoundsException {
+    public T getElement(int numb) throws ArrayIndexOutOfBoundsException {
         if(numb < j) {
             return (T) ar[numb];
         } else {
