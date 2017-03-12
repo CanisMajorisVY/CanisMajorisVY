@@ -33,7 +33,12 @@ public class App extends Application{
         try {
             this.terminal = new ConsoleUserInteractor();
             this.trackDB = new TrackDB();
+            this.trackDB.readDBFromFile();
         } catch (UserInteractorException ex) {
+            System.out.println("Couldn't start application due error:");
+            System.err.println(ex.getMessage());
+            System.exit(1);
+        } catch (DbException ex){
             System.out.println("Couldn't start application due error:");
             System.err.println(ex.getMessage());
             System.exit(1);
@@ -47,6 +52,7 @@ public class App extends Application{
             while((command = this.terminal.readCommand()) != null){
                 switch(command){
                     case "exit":
+                        trackDB.writeDBInFile();
                         this.terminal.print("Bye");
                         System.exit(0);
                         break;
@@ -104,7 +110,7 @@ public class App extends Application{
                         break;
 
                     case "print":
-                        terminal.print(Arrays.toString(trackDB.getArray().toArray()));
+                        terminal.print(trackDB.toString());
                         break;
 
                     case "sort by Names":

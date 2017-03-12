@@ -1,7 +1,6 @@
 package DB;
 
 import MusicPackage.*;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,7 +39,7 @@ public class TrackDB implements DB {
 
 
     @Override
-    public void readDBFromFile() throws IOException, DbException {
+    public void readDBFromFile() throws DbException {
         try {
             File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
             Scanner sc = new Scanner(file);
@@ -72,7 +71,7 @@ public class TrackDB implements DB {
         }
     }
 
-    public void writeDBInFile() throws IOException{
+    public void writeDBInFile() throws DbException{
         try {
             File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
             FileWriter fileWriter = new FileWriter(file, false);
@@ -84,12 +83,12 @@ public class TrackDB implements DB {
                 bufferedWriter.append(i + ". " + track.getTitle() + " ");
                 bufferedWriter.append(Integer.toString(track.getDuration()) + " ");
                 bufferedWriter.append(track.getComposer().getName() + " ");
-                bufferedWriter.append(track.getCover().getImage());
+                bufferedWriter.append(track.getCover().getImage() + "\n");
                 i++;
             }
             bufferedWriter.close();
         } catch (IOException ex) {
-            System.err.print(ex.getMessage());
+           throw new DbException("Problem with file");
         }
     }
 
@@ -198,6 +197,22 @@ public class TrackDB implements DB {
         return arrayList;
     }
 
+
+    @Override
+    public String toString(){
+        int i = 1;
+        String s = "";
+        Iterator<Track> iterator = arrayList.iterator();
+        while (iterator.hasNext()){
+            Track track = iterator.next();
+            s += (i + ". Title: " + track.getTitle() + " Duration: ");
+            s += (Integer.toString(track.getDuration()) + " Composer: ");
+            s += (track.getComposer().getName() + " Cover ");
+            s += (track.getCover().getImage()) + "\n";
+            i++;
+        }
+        return s;
+    }
 
 
 
