@@ -87,7 +87,6 @@ public class Collection<T> extends AbstractCollection<T> {
         return false;
     }
 
-
     public boolean addAll(Collection<? extends T> collection){
         collection = new Collection<T>((Collection<T>) collection);
         while(index + collection.size() > array.length - 2 && array.length < MAXLENGTH * 3 / 2) {

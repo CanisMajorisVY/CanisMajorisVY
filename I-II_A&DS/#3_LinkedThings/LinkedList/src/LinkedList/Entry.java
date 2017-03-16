@@ -1,4 +1,4 @@
-package OneDirectionLinkedList;
+package LinkedList;
 
 /**
  * Created by Mihail on 02.03.2017.
@@ -15,6 +15,10 @@ public class Entry<T> {
 
     public T getData(){
         return data;
+    }
+
+    public void setData(T data){
+        this.data = data;
     }
 
     public Entry<T> getNext() {
