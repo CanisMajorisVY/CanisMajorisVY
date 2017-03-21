@@ -11,9 +11,9 @@ public class DoubleLinkedList<T> {
     private Entry<T> tail;
 
     public DoubleLinkedList(){
-        head = new Entry<T>(null, null, null);
-        tail = new Entry<T>(null, null, null);
-        head.setNext(tail);     //БОЖЕМОЙЙЙЙЙЙЙЙЙЙЙЙЙЙЙ
+        head = new Entry<T>(null, tail, null);
+        tail = new Entry<T>(head, null, null);
+        head.setNext(tail);
         tail.setPrevious(head);
 
         this.size = 0;

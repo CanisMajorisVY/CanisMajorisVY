@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class TrackDB implements DB {
 
-    private HashSet<Track> hashSet;
+    private Set<Track> hashSet;
 
     public TrackDB(){
         hashSet = new HashSet<Track>();
@@ -41,7 +41,7 @@ public class TrackDB implements DB {
     @Override
     public void readDBFromFile() throws DbException {
         try {
-            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
+            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#8_SetTrackSS//src//DB//TracksFile");
             Scanner sc = new Scanner(file);
             String s, title, composerName, image;
             int k, duration;
@@ -73,7 +73,7 @@ public class TrackDB implements DB {
 
     public void writeDBInFile() throws DbException{
         try {
-            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
+            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#8_SetTrackSS//src//DB//TracksFile");
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             int i = 0;
