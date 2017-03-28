@@ -3,7 +3,7 @@ package entities.Comparators;
 /**
  * Created by Mihail on 21.03.2017.
  */
-public class StdByBallComparator {
+public class StdByBallComparator implements Com {
     @Override
     public int compare(Object std1, Object std2) {
         if(std1 instanceof entities.Student && std2 instanceof entities.Student) {

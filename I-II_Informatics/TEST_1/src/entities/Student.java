@@ -9,8 +9,28 @@ import java.util.Set;
  * Created by Mihail on 21.03.2017.
  */
 public class Student {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    public Student( String name, int age){
+        Student student = (Student) o;
+
+        if (age != student.age) return false;
+        if (listOfSubjects != null ? !listOfSubjects.equals(student.listOfSubjects) : student.listOfSubjects != null)
+            return false;
+        return name != null ? name.equals(student.name) : student.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = listOfSubjects != null ? listOfSubjects.hashCode() : 0;
+        result = 31 * result + age;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
+
+    public Student(String name, int age){
         this.name = name;
         this.age = age;
     }
@@ -54,9 +74,6 @@ public class Student {
 
         return s / i;
     }
-
-
-
 
 
 }
