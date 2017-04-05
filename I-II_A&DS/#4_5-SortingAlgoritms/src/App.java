@@ -14,7 +14,8 @@ public class App {
         int[] array = new int[n];
 
         for(int i = 0; i < n; i++){
-            array[i] = r.nextInt(100);
+            array[i] = r.nextInt(100000000);
+//            array[i] = i;
         }
 
 //        System.out.println(Arrays.toString((array)));
@@ -22,23 +23,41 @@ public class App {
         long x;
         int[] ar = array.clone();
 
-        x = System.nanoTime();
-        selectionSort(ar);
-        x = System.nanoTime() - x;
-        System.out.println(x / 1000000);
-
-        ar = array.clone();
-        x = System.nanoTime();
-        insertionSort(ar);
-        x = System.nanoTime() - x;
-        System.out.println(x / 1000000);
-
+//        x = System.nanoTime();
+//        selectionSort(ar);
+//        x = System.nanoTime() - x;
+//        System.out.println("selectionSort " + x / 1000000);
+//
+//        ar = array.clone();
+//        x = System.nanoTime();
+//        insertionSort(ar);
+//        x = System.nanoTime() - x;
+//        System.out.println("insertionSort " + x / 1000000);
 
         ar = array.clone();
         x = System.nanoTime();
         mergeSort(ar);
         x = System.nanoTime() - x;
-        System.out.println(x / 1000000);
+        System.out.println("mergeSort " + x / 1000000);
+
+        ar = array.clone();
+        x = System.nanoTime();
+        mergInsertsort(ar);
+        x = System.nanoTime() - x;
+        System.out.println("mergInsertSort " + x / 1000000);
+
+
+        ar = array.clone();
+        x = System.nanoTime();
+        Arrays.sort(array);
+        x = System.nanoTime() - x;
+        System.out.println("Arrays.sort " + x / 1000000);
+
+        ar = array.clone();
+        x = System.nanoTime();
+        Arrays.parallelSort(array);
+        x = System.nanoTime() - x;
+        System.out.println("Arrays.parallelSort " + x / 1000000);
 
 //        System.out.println(Arrays.toString(ar));
 
@@ -47,6 +66,7 @@ public class App {
 
 
     }
+
 
 
 
@@ -62,6 +82,7 @@ public class App {
         int i = 0, j = 0, i1 = 0;
 
         while(i < arr1.length || j < arr2.length ){
+
             if(i < arr1.length & j < arr2.length) {
                 arr[i1] = Math.min(arr1[i], arr2[j]);
 
@@ -92,7 +113,6 @@ public class App {
 
         return arr;
     }
-
 
     public static void selectionSort(int[] arr) {
         int min = arr[0];
@@ -132,6 +152,49 @@ public class App {
             arr[j] = arI;
 
         }
+    }
+
+    public static int[] mergInsertsort(int[] arr){
+        if(arr.length < 40){
+            insertionSort(arr);
+            return arr;
+        }
+
+        int[] arr1 = mergeSort(Arrays.copyOf(arr,arr.length / 2));
+        int[] arr2 = mergeSort(Arrays.copyOfRange(arr, arr.length / 2, arr.length));
+
+        int i = 0, j = 0, i1 = 0;
+
+        while(i < arr1.length || j < arr2.length ){
+            if(i < arr1.length & j < arr2.length) {
+                arr[i1] = Math.min(arr1[i], arr2[j]);
+
+                if(arr[i1] == arr1[i]) {
+                    i++;
+                } else {
+                    j++;
+                }
+                i1++;
+
+            } else {
+                if(i == arr1.length) {
+                    while (j < arr2.length) {
+                        arr[i1] = arr2[j];
+                        i1++;
+                        j++;
+                    }
+                }
+                if(j == arr2.length) {
+                    while (i < arr1.length) {
+                        arr[i1] = arr1[i];
+                        i1++;
+                        i++;
+                    }
+                }
+            }
+        }
+
+        return arr;
     }
 
 }
