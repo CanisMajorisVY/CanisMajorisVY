@@ -1,6 +1,6 @@
 *.class
 *.iml
 *.xml
-out/production/*
-out/*
-TEST_1/*
+out/production
+out
+TEST_1
