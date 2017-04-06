@@ -2,5 +2,5 @@
 *.iml
 *.xml
 out/production
-out*/
-TEST_1*/
+out/*
+TEST_1/*
