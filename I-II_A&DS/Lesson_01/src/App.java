@@ -28,6 +28,7 @@ public class App {
 
         byte[] ar = new byte[N];
         new Random().nextBytes(ar);
+        Arrays.fill(ar, (byte)128);
 
         System.out.println("Изначальный массив: " + Arrays.toString(ar));
 
