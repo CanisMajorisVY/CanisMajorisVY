@@ -35,6 +35,7 @@ public class App {
         final byte[] GIFFIRSTBYTES = {71,73,70,56,57,97};
         File file = new File(str);
 
+
         if(file.isFile()) {
             byte[] ar = new byte[6];
 

@@ -1,9 +1,7 @@
 package fileManager;
 
-import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Executable;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
@@ -13,14 +11,10 @@ import java.util.Scanner;
  */
 public class FileManager {
 
-    File dir;
+    private File dir;
 
     public FileManager() {
-        this (new File(System.getProperty("user.home")));
-    }
-
-    public FileManager(File file) {
-        dir  = file;
+        dir = new File(System.getProperty("user.home"));
     }
 
     public File currentDirecrory(){
@@ -63,6 +57,7 @@ public class FileManager {
 
                                 long x = Files.size(fileList[i].toPath());
                                 int j = 0;
+
                                 while (x > 1024) {
                                     x = x / 1024;
                                     j++;
@@ -84,7 +79,7 @@ public class FileManager {
                                         str += "гб ";
                                         break;
                                     default:
-                                        str += "коз ";
+                                        str += "";
                                         break;
                                 }
 
