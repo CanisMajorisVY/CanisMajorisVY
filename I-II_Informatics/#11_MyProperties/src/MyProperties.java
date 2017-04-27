@@ -6,10 +6,9 @@ import java.util.*;
  */
 public class MyProperties extends Hashtable<String, String> {
 
-    private MyProperties defaults;
 
     public MyProperties() {
-
+        super();
     }
 
     public String getProperty(String key) {
@@ -54,9 +53,8 @@ public class MyProperties extends Hashtable<String, String> {
         try(BufferedReader BR = new BufferedReader(reader)) {
             String str;
             while ((str = BR.readLine()) != null) {
-                str = str.replaceAll(" ", "");
                 String[] strA = str.split("=");
-                put(strA[0], strA[1]);
+                put(strA[0].trim(), strA[1].trim());
             }
         } catch (IOException ex) {
             throw new IOException("Ошибка чтения");

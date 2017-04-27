@@ -5,6 +5,7 @@ import jdk.internal.util.xml.impl.Input;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by Mihail on 06.04.2017.
@@ -26,7 +27,7 @@ public class App {
 
     public static void fun1() throws IOException{
         final int N = 10;
-        File file = new File("C://Bce//univ//GitHub//ITIS-Homework//I-II_A&DS//Lesson_01//src//f");
+        File file = new File("C:\\Bce\\univ\\GitHub\\ITIS-Homework\\I-II_Informatics\\#10_WorkWithFile\\src\\Task1_Task2\\f1");
 
         if(file.isFile()) {
             byte[] ar = new byte[N];
@@ -36,16 +37,14 @@ public class App {
 
             try (OutputStream oS = new FileOutputStream(file)) {
                 oS.write(ar);
-                oS.close();
             } catch (IOException ex) {
-                throw new IOException("Ошибка работы с файлом");
+                throw new IOException("Ошибка работы с файлом", ex);
             }
 
             try (InputStream iS = new FileInputStream(file)) {
                 iS.read(ar);
-                iS.close();
             } catch (IOException ex) {
-                throw new IOException("Ошибка работы с файлом");
+                throw new IOException("Ошибка работы с файлом", ex);
             }
 
             System.out.println("Считанный массив: " + Arrays.toString(ar));
@@ -56,26 +55,24 @@ public class App {
 
     public static void fun2() throws IOException{
         final int N = 10;
-        File file = new File("C://Bce//univ//GitHub//ITIS-Homework//I-II_A&DS//Lesson_01//src//f2");
+        File file = new File("C:\\Bce\\univ\\GitHub\\ITIS-Homework\\I-II_Informatics\\#10_WorkWithFile\\src\\Task1_Task2\\f2");
 
         if(file.isFile()) {
             char[] ar = new char[N];
             for (int i = 0; i < N; i++) {
-                ar[i] = (char) (new Random().nextInt(29) + 97);
+                ar[i] = (char) (new Random().nextInt(26) + 97);
             }
 
             System.out.println("Изначальный массив: " + Arrays.toString(ar));
 
             try (Writer writer = new FileWriter(file)) {
                 writer.write(ar);
-                writer.close();
             } catch (IOException ex) {
                 throw new IOException("Ошибка работы с файлом");
             }
 
             try (Reader reader = new FileReader(file)) {
                 reader.read(ar);
-                reader.close();
             } catch (IOException ex) {
                 throw new IOException("Ошибка работы с файлом");
             }

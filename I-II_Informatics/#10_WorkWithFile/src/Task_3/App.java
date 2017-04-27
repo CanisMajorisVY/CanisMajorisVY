@@ -10,12 +10,12 @@ import java.util.Arrays;
  * Created by Mihail on 09.04.2017.
  */
 public class App {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException{
+        System.out.print(photoType("C:\\Bce\\univ\\GitHub\\ITIS-Homework\\I-II_Informatics\\#10_WorkWithFile\\src\\Task_3\\PhotoExamples\\BMP.bmp"));
     }
 
-
     public static String photoType(String path) throws IOException {
+
         if(isBMP(path)) {
             return "BMP";
         }
@@ -41,7 +41,6 @@ public class App {
 
             try (InputStream iS = new FileInputStream(file)) {
                 iS.read(ar,0, 6);
-                iS.close();
                 if(Arrays.equals(ar,GIFFIRSTBYTES)) {
                     return true;
                 }

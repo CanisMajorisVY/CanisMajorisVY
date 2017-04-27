@@ -7,12 +7,13 @@ import java.util.Scanner;
  */
 
 public class MyCSV {
-
+    private static final String DEFAULT_SEPARATOR = ",";
     private String spliterator;
     private File file;
 
     public MyCSV(File file) {
-        this(file, ", ");
+        spliterator = DEFAULT_SEPARATOR;
+        this.file = file;
     }
 
     public MyCSV(File file, String spliterator) {
@@ -53,7 +54,7 @@ public class MyCSV {
             }
             bufferedWriter.write(str);
         } catch (IOException ex) {
-            throw new MyCSVException("Ошибка в работы с файлом");
+            throw new MyCSVException("Ошибка в работы с файлом", ex);
         }
     }
 }
