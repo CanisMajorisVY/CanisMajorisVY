@@ -12,8 +12,7 @@ public class MyCSV {
     private File file;
 
     public MyCSV(File file) {
-        spliterator = DEFAULT_SEPARATOR;
-        this.file = file;
+        this(file, DEFAULT_SEPARATOR);
     }
 
     public MyCSV(File file, String spliterator) {

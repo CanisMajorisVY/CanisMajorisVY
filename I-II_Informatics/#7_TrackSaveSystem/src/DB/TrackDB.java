@@ -19,7 +19,7 @@ public class TrackDB implements DB {
         arrayList = new ArrayList<Track>();
     }
 
-
+    @Override
     public void add(Object track){
         if(track instanceof  Track) {
             arrayList.add((Track)track);
@@ -31,7 +31,7 @@ public class TrackDB implements DB {
     @Override
     public void remove(int i){
         if(i < arrayList.size()) {
-            arrayList.remove(i);
+            arrayList.remove(i - 1);
         } else {
             throw new NoSuchElementException();
         }
@@ -41,7 +41,7 @@ public class TrackDB implements DB {
     @Override
     public void readDBFromFile() throws DbException {
         try {
-            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
+            File file = new File("C:\\Bce\\univ\\GitHub\\ITIS-Homework\\I-II_Informatics\\#7_TrackSaveSystem\\src\\DB\\TracksFile");
             Scanner sc = new Scanner(file);
             String s, title, composerName, image;
             int k, duration;
@@ -73,7 +73,7 @@ public class TrackDB implements DB {
 
     public void writeDBInFile() throws DbException{
         try {
-            File file = new File("C://Bce//univ//GitHube//ITIS-Homework//I-II_Informatics//#7_TrackSaveSystem//src//DB//TracksFile");
+            File file = new File("C:\\Bce\\univ\\GitHub\\ITIS-Homework\\I-II_Informatics\\#7_TrackSaveSystem\\src\\DB\\TracksFile");
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             int i = 0;

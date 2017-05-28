@@ -133,9 +133,6 @@ public class App extends Application{
                         this.terminal.print("Unkown command");
                         break;
                 }
-
-
-
             }
         } catch (UserInteractorReadException ex) {
             System.out.println("Can't read user input due error:");

@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Created by Mihail on 05.03.2017.
  */
-public class TrackComposerNameComparator  implements Comparator<Track> {
+public class TrackComposerNameComparator implements Comparator<Track> {
 
     @Override
     public int compare(Track track1, Track track2) {
