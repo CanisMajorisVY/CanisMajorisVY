@@ -1,0 +1,61 @@
+$(document).ready(function(){
+	$('.shop2-product-btn').click(function(){
+		setTimeout(function(){
+			$('#dop_cart').load("/magazin/cart?prod_cart=1 #shop2-cart", function() {
+				$('.popup-overlay, .popup-window').show();
+			});
+		},700);
+	});
+	$('.popup-overlay, .popup-close, .to-shop').click(function(){
+		$('.popup-overlay, .popup-window').hide();
+	});   
+    (function () {  
+	    var $box = $(".block-wr"),
+	        $but = $(".phone-but"),
+	        $block = $box.find(".block-my"),
+	        $close = $box.find(".block-my-close"),
+	        $popup = $box.find(".popup-bg");
+        $but.click(function () {
+				$block.fadeToggle("slow");
+                $popup.fadeToggle("slow");
+				$close.fadeToggle("slow").click(function () {
+					$block.fadeOut();
+					$close.fadeOut();
+	                $popup.fadeOut();
+				});
+				$($block).includeForm('/zakazat-zvonok');
+                return false;
+		});
+    }());	
+    (function () { 
+	    var $box = $(".block-wr"),
+	        $but = $(".frm"),
+			$block = $box.find(".block-my"),
+			$close = $box.find(".block-my-close"),
+			$popup = $box.find(".popup-bg");
+        $but.click(function () {
+				$block.fadeToggle("slow");
+                $popup.fadeToggle("slow");
+				$close.fadeToggle("slow").click(function () {
+					$block.fadeOut();
+					$close.fadeOut();
+	                $popup.fadeOut();
+				});
+				$($block).includeForm('/zakazat-frm');
+                return false;
+		});
+    }());
+    (function () { 
+		var menu = $('.menu-top-wrap'),
+			offset = menu.offset();
+		$(window).scroll(function(){
+			if (($(window).scrollTop() > offset.top)) {
+				if (($(window).scrollTop() > offset.top)) {
+					menu.addClass('fixed'); 
+				};
+			} else {
+				menu.removeClass('fixed');
+			};
+		});
+    }());	
+});
